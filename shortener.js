@@ -29,7 +29,7 @@ app.post('/shorten', async (req, res) => {
     return res.status(400).send('Invalid URL');
   }
 
-  const shortUrl = generateShortUrl();
+  const shortUrl = await generateShortUrl();
   urlDatabase[shortUrl] = longUrl;
     res.send("text");
   // res.send(`Shortened URL: http://localhost:${PORT}/${shortUrl}`);
@@ -53,8 +53,8 @@ app.listen(PORT, () => {
 });
 
 // Helper function to generate a short URL
-function generateShortUrl() {
-  return nanoid(8); // Adjust the length of the generated ID as needed
+async function generateShortUrl() {
+  return await nanoid(8); // Adjust the length of the generated ID as needed
 }
 
 // Helper function to check if a URL is valid

@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 });
 
 // Handle URL shortening
-app.post('/shorten', (req, res) => {
+app.post('/shorten', async (req, res) => {
   const longUrl = req.body.longUrl;
 
   if (!isValidUrl(longUrl)) {
@@ -36,7 +36,7 @@ app.post('/shorten', (req, res) => {
 });
 
 // Redirect to the original URL when a short URL is accessed
-app.get('/:shortUrl', (req, res) => {
+app.get('/:shortUrl', async (req, res) => {
   const shortUrl = req.params.shortUrl;
   const longUrl = urlDatabase[shortUrl];
 

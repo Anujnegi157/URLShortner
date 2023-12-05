@@ -31,8 +31,8 @@ app.post('/shorten', async (req, res) => {
 
   const shortUrl = generateShortUrl();
   urlDatabase[shortUrl] = longUrl;
-
-  res.send(`Shortened URL: http://localhost:${PORT}/${shortUrl}`);
+    res.send("text");
+  // res.send(`Shortened URL: http://localhost:${PORT}/${shortUrl}`);
 });
 
 // Redirect to the original URL when a short URL is accessed
